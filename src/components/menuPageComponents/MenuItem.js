@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Card from "react-bootstrap/card";
+import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { CartContext } from "../../App";
 
