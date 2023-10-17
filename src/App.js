@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { createContext, useState } from "react";
+import "./styles/App.css";
+import CartPage from "./pages/CartPage";
+import MenuPage from "./pages/MenuPage";
+// import Cards from './components/Cards';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Route, Routes } from "react-router-dom";
+
+export const CartContext = createContext(null);
 
 function App() {
+  const cartContext = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CartContext.Provider value={cartContext} key={`cartContext`}>
+      <Routes>
+        <Route path="/" element={<MenuPage />} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/cart" element={<CartPage />} />
+      </Routes>
+    </CartContext.Provider>
   );
 }
 
